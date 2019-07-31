@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<xm-home></xm-home>
+		<router-view></router-view>
 	</div>
 </template>
 
@@ -10,7 +10,7 @@ import Home from '@/views/Home'
 export default {
 	name: 'app',
 	components: {
-		xmHome: Home
+		// xmHome: Home
 	}
 }
 </script>

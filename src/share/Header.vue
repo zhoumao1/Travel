@@ -4,9 +4,10 @@
 		<div class="center">
 			<slot name="center"></slot>
 		</div>
-		<div class="right">
+		<router-link to="/city" class="rights" tag="div">
 			<slot name="right"></slot>
-		</div>
+			<slot name="icon"></slot>
+		</router-link>
 	</div>
 </template>
 
@@ -51,12 +52,13 @@ export default {
 			border-radius: 4 / @rem;
 		}
 	}
-	.right {
+	.rights {
 		flex: 2;
 		color: #fff;
 		text-align: center;
 		font-size: 14px;
 		line-height: 30 / @rem;
+		position: relative;
 	}
 }
 </style>

@@ -12,6 +12,7 @@ import 'swiper/dist/css/swiper.min.css'
 
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
+axios.defaults.baseURL = ' https://easy-mock.com/mock/5ceca2b5b2cb1836a8f1ae87/test'
 
 new Vue({
 	router,
