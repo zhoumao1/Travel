@@ -3,17 +3,22 @@
 		<div class="list">
 			<div class="title">当前城市</div>
 			<div class="current-row clearfix">
-				<div class="tag">上海</div>
+				<div class="tag">{{ city }}</div>
 			</div>
 			<div class="title">热门城市</div>
 			<div class="list-group clearfix">
-				<div class="tag" v-for="item of hotCities" :key="item.id">
+				<div
+					class="tag"
+					v-for="item of hotCities"
+					:key="item.id"
+
+				>
 					{{ item.name }}
 				</div>
 			</div>
-			<div class="list-group" v-for="(item, key) of cities" :key="key">
+			<div class="list-group" v-for="(item, key) of cities" :key="key" :ref="key">
 				<div class="title">{{ key }}</div>
-				<div class="item" v-for="innerItem of item" :key="innerItem.id">
+				<div class="item" v-for="innerItem of item" :key="innerItem.id" @click="setCity(innerItem.name)">
 					{{ innerItem.name }}
 				</div>
 			</div>
@@ -28,8 +33,33 @@ export default {
 	name: 'List',
 	props: ['cities', 'hotCities'],
 	mounted() {
-		console.log(this.cities)
-		this.scroll = new BScroll(this.$refs.wrapper)
+		this.scroll = new BScroll(this.$refs.wrapper, {
+			click: true
+		})
+	},
+	computed: {
+		letters() {
+			return this.$store.getters.letters
+		},
+		city(){
+			return this.$store.getters.city
+		}
+	},
+	methods:{
+		setCity(city){
+			console.log(111)
+			this.$store.commit('setCity', city)
+		}
+	},
+	watch: {
+		letters() {
+			if (this.letters) {
+				const element = this.$refs[this.letters][0]
+
+				console.log(element)
+				this.scroll.scrollToElement(element)
+			}
+		}
 	}
 }
 </script>

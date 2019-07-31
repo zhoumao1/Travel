@@ -1,13 +1,19 @@
 <template>
 	<ul class="xm-alphabet">
-		<li class="item" v-for="(item, key) of cities" :key="key">{{ key }}</li>
+		<li class="item" v-for="(item, key) of cities" :key="key" @click="getInnerText">{{ key }}</li>
 	</ul>
 </template>
 
 <script>
 export default {
 	name: 'Alphabet',
-	props: ['cities']
+	props: ['cities'],
+	methods: {
+		getInnerText(e){
+			this.$store.commit('setLetters', e.target.innerText)
+		}
+
+	}
 }
 </script>
 

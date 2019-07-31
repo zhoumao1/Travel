@@ -5,7 +5,7 @@
 				<input type="text" placeholder="请输入地址" />
 			</template>
 			<template #right>
-				北京
+				{{ city }}
 			</template>
 			<template #icon>
 				<i class="icon"></i>
@@ -48,6 +48,11 @@ export default {
 				this.recommendList = data.recommendList
 				this.weekendList = data.weekendList
 			})
+	},
+	computed: {
+		city(){
+			return this.$store.getters.city
+		}
 	},
 	components: {
 		xmHeader: Header,
