@@ -24,5 +24,5 @@ export default new Router({
 			component: City
 		}
 	],
-	mode: 'history'
+	mode: 'hash'
 })
