@@ -2,40 +2,20 @@
 	<div class="xm-list" ref="wrapper">
 		<div class="list">
 			<div class="title">当前城市</div>
-			<div class="current-row">
-				<div class="tag">上海</div>
+			<div class="current-row clearfix">
 				<div class="tag">上海</div>
 			</div>
 			<div class="title">热门城市</div>
-			<div class="list-group">
-				<div class="title">A</div>
-				<div class="item">als</div>
-				<div class="item">als</div>
-				<div class="item">als</div>
+			<div class="list-group clearfix">
+				<div class="tag" v-for="item of hotCities" :key="item.id">
+					{{ item.name }}
+				</div>
 			</div>
-			<div class="list-group">
-				<div class="title">A</div>
-				<div class="item">als</div>
-				<div class="item">als</div>
-				<div class="item">als</div>
-			</div>
-			<div class="list-group">
-				<div class="title">A</div>
-				<div class="item">als</div>
-				<div class="item">als</div>
-				<div class="item">als</div>
-			</div>
-			<div class="list-group">
-				<div class="title">A</div>
-				<div class="item">als</div>
-				<div class="item">als</div>
-				<div class="item">als</div>
-			</div>
-			<div class="list-group">
-				<div class="title">A</div>
-				<div class="item">als</div>
-				<div class="item">als</div>
-				<div class="item">als</div>
+			<div class="list-group" v-for="(item, key) of cities" :key="key">
+				<div class="title">{{ key }}</div>
+				<div class="item" v-for="innerItem of item" :key="innerItem.id">
+					{{ innerItem.name }}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -46,7 +26,9 @@ import BScroll from 'better-scroll'
 
 export default {
 	name: 'List',
+	props: ['cities', 'hotCities'],
 	mounted() {
+		console.log(this.cities)
 		this.scroll = new BScroll(this.$refs.wrapper)
 	}
 }
@@ -64,6 +46,7 @@ export default {
 	& > .list {
 		& > .title,
 		& > .list-group .title {
+			width: 16rem;
 			height: 26 / @rem;
 			line-height: 26 / @rem;
 			font-size: 13px;
@@ -72,27 +55,29 @@ export default {
 			box-sizing: border-box;
 			padding-left: 10 / @rem;
 		}
-		& > .current-row {
-			height: 46 / @rem;
+		& > .current-row,
+		.list-group {
+			/*height: 46 / @rem;*/
 			box-sizing: border-box;
 			padding: 5 / @rem 30 / @rem 5 / @rem 5 / @rem;
 			.tag {
 				float: left;
 				position: relative;
-				top: 6 / @rem;
-				margin-right: 10 / @rem;
 				width: 104 / @rem;
 				height: 25 / @rem;
 				line-height: 15 / @rem;
-				box-sizing: border-box;
-				padding: 5 / @rem 0;
+				text-align: center;
 				border: 0.02rem solid #ccc;
 				border-radius: 3 / @rem;
-				text-align: center;
+				box-sizing: border-box;
+				padding: 5 / @rem 0;
+				margin-right: 4 / @rem;
+				margin-bottom: 4 / @rem;
 			}
 		}
 		& > .list-group {
 			.item {
+				width: 16rem;
 				height: 26 / @rem;
 				line-height: 26 / @rem;
 				box-sizing: border-box;

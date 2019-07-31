@@ -10,8 +10,8 @@
 				<input type="text" placeholder="输入城市名或拼音">
 			</div>
 		</div>
-		<xm-list></xm-list>
-		<xm-alphabet></xm-alphabet>
+		<xm-list :cities="cities" :hotCities="hotCities"></xm-list>
+		<xm-alphabet :cities="cities"></xm-alphabet>
 	</div>
 </template>
 
@@ -22,6 +22,20 @@ import Alphabet from '@/components/city/Alphabet'
 
 export default {
 	name: 'City',
+	data() {
+		return {
+			cities: {},
+			hotCities: []
+		}
+	},
+	created() {
+		this.axios.get('/api/city')
+		.then(res =>{
+			res = res.data.data
+			this.cities = res.cities
+			this.hotCities = res.hotCities
+		})
+	},
 	components: {
 		xmHeader: Header,
 		xmList: List,

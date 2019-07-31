@@ -1,16 +1,13 @@
 <template>
 	<ul class="xm-alphabet">
-		<li class="item">1</li>
-		<li class="item">2</li>
-		<li class="item">3</li>
-		<li class="item">4</li>
-		<li class="item">5</li>
+		<li class="item" v-for="(item, key) of cities" :key="key">{{ key }}</li>
 	</ul>
 </template>
 
 <script>
 export default {
-	name: 'Alphabet'
+	name: 'Alphabet',
+	props: ['cities']
 }
 </script>
 
@@ -31,7 +28,7 @@ export default {
 		color: #00bcd4;
 		font-size: 16px;
 		box-sizing: border-box;
-		padding: 6/@rem 0;
+		padding: 6 / @rem 0;
 	}
 }
 </style>
