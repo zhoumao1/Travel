@@ -47,6 +47,8 @@ export default {
 		color: #fff;
 		line-height: 33/@rem;
 		input {
+			position: relative;
+			top: -3/@rem;
 			width: 100%;
 			height: 30/@rem;
 			box-sizing: border-box;
