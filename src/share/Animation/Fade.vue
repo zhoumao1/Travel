@@ -1,5 +1,5 @@
 <template>
-  <transition>
+  <transition mode="out-in">
     <slot></slot>
   </transition>
 </template>

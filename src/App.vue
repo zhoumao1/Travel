@@ -1,16 +1,21 @@
 <template>
 	<div id="app">
 		<keep-alive>
-			<router-view></router-view>
+			<xm-fade>
+				<router-view></router-view>
+			</xm-fade>
 		</keep-alive>
 	</div>
 </template>
 
 <script>
-import Home from '@/views/Home'
+import Fade from '@/share/Animation/Fade'
 
 export default {
-	name: 'app'
+	name: 'app',
+	components: {
+		xmFade: Fade
+	}
 }
 </script>
 

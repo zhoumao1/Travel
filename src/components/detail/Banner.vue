@@ -10,12 +10,19 @@
 				<span class="num">39</span>
 			</div>
 		</div>
-		<xm-gallary @sendIsShowGallary="isShowGallary = $event" v-show="isShowGallary" :gallaryImgs="gallaryImgs"></xm-gallary>
+		<xm-fade>
+			<xm-gallary
+				@sendIsShowGallary="isShowGallary = $event"
+				v-show="isShowGallary"
+				:gallaryImgs="gallaryImgs"
+			></xm-gallary>
+		</xm-fade>
 	</div>
 </template>
 
 <script>
 import Gallary from '@/share/gallary/Gallary'
+import Fade from '@/share/Animation/Fade'
 
 export default {
 	name: 'Banner',
@@ -27,7 +34,8 @@ export default {
 	},
 
 	components: {
-		xmGallary: Gallary
+		xmGallary: Gallary,
+		xmFade: Fade
 	}
 }
 </script>
