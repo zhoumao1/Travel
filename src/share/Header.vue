@@ -44,6 +44,8 @@ export default {
 		flex: 6.5;
 		text-align: center;
 		position: relative;
+		color: #fff;
+		line-height: 33/@rem;
 		input {
 			width: 100%;
 			height: 30/@rem;

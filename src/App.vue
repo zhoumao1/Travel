@@ -8,10 +8,7 @@
 import Home from '@/views/Home'
 
 export default {
-	name: 'app',
-	components: {
-		// xmHome: Home
-	}
+	name: 'app'
 }
 </script>
 
