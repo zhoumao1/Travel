@@ -24,7 +24,6 @@ export default {
 	props: ['gallaryImgs'],
 	mounted() {
 		setTimeout(() => {
-			console.log(this.gallaryImgs)
 			new Swiper('.xm-gallary .wrap .swiper-container', {
 				pagination: {
 					el: '.xm-gallary .wrap .swiper-container .swiper-pagination',
@@ -44,6 +43,7 @@ export default {
 <style lang="less" scoped>
 @rem: 375/16rem;
 .xm-gallary {
+	z-index: 112;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

@@ -1,20 +1,23 @@
 <template>
 	<div class="xm-Detail">
 		<xm-header></xm-header>
-		<xm-banner :gallaryImgs="gallaryImgs"></xm-banner>
-		<div class="content" style="height: 1000px;"></div>
+		<xm-banner :gallaryImgs="gallaryImgs" :sightName="sightName"></xm-banner>
+		<xm-list :categoryList="categoryList"></xm-list>
 	</div>
 </template>
 
 <script>
 import Banner from '@/components/detail/Banner'
 import Header from '@/components/detail/Header'
+import List from '@/components/detail/List'
 
 export default {
 	name: 'Detail',
 	data() {
 		return {
-			gallaryImgs: []
+			gallaryImgs: [],
+			sightName: '',
+			categoryList: []
 		}
 	},
 	created() {
@@ -22,11 +25,15 @@ export default {
 			let data = res.data.data
 
 			this.gallaryImgs = data.gallaryImgs
+			this.sightName = data.sightName
+			this.categoryList = data.categoryList
+			console.log(data)
 		})
 	},
 	components: {
 		xmBanner: Banner,
-		xmHeader: Header
+		xmHeader: Header,
+		xmList: List
 	}
 }
 </script>

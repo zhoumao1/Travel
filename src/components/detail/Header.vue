@@ -42,11 +42,10 @@ export default {
 			}
 		}
 	},
-	mounted() {
+	activated() {
 		window.addEventListener('scroll', this.handleScroll)
 	},
-	destroyed() {
-		console.log('zou l ')
+	deactivated() {
 		window.removeEventListener('scroll', this.handleScroll)
 	},
 	components: {

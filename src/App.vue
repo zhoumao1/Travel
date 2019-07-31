@@ -1,6 +1,8 @@
 <template>
 	<div id="app">
-		<router-view></router-view>
+		<keep-alive>
+			<router-view></router-view>
+		</keep-alive>
 	</div>
 </template>
 
@@ -14,7 +16,7 @@ export default {
 
 <style lang="less">
 @rem: 375/16rem;
-	.g-pd{
-		padding: 0 10/@rem;
-	}
+.g-pd {
+	padding: 0 10 / @rem;
+}
 </style>

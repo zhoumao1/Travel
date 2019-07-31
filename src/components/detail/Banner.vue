@@ -6,7 +6,7 @@
 				alt=""
 			/>
 			<div class="banner-info">
-				<span class="sight-name">北京欢乐谷(AAAAA景区)</span>
+				<span class="sight-name">{{ sightName }}</span>
 				<span class="num">39</span>
 			</div>
 		</div>
@@ -19,7 +19,7 @@ import Gallary from '@/share/gallary/Gallary'
 
 export default {
 	name: 'Banner',
-	props: ['gallaryImgs'],
+	props: ['gallaryImgs', 'sightName'],
 	data() {
 		return {
 			isShowGallary: false

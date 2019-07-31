@@ -1,6 +1,6 @@
 <template>
 	<div class="xm-header g-pd">
-		<div class="prev"></div>
+		<router-link to="/" tag="div" class="prev"></router-link>
 		<div class="center">
 			<slot name="center"></slot>
 		</div>
